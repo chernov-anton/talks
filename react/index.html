@@ -1,146 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Shower Presentation Engine</title>
+    <title>React js</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../src/shower/themes/itechart/styles/screen-16x10.css">
+    <link rel="stylesheet" href="../src/shower/themes/ribbon/styles/slide/elements/columns.css">
 </head>
 <body class="shower list">
 
-    <header class="caption">
-        <h1>React js</h1>
-        <p>Chernov Anton, Software Engineer</p>
-    </header>
+<header class="caption">
+    <h1>React js</h1>
+    <p>Chernov Anton, Software Engineer</p>
+</header>
 
-    <section class="slide title" id="cover">
-        <h2>React js</h2>
-        <p>
-            Chernov Anton, Software Engineer
-        </p>
-        <p class="date">22 июля 2019</p>
-    </section>
+<section class="slide title" id="cover">
+    <h2>React js</h2>
+    <p>
+        Chernov Anton, Software Engineer
+    </p>
+    <p class="date">22 июля 2019</p>
+</section>
 
-    <section class="slide">
-        <h2>Agenda</h2>
-        <ol>
-            <li>Traditional websites vs SPA</li>
-            <li>Component-based UI</li>
-            <li>React component</li>
-            <li>Component Lifecycle</li>
-            <li>Routing</li>
-        </ol>
-        <p class="note">It should be enough to start working with React</p>
-    </section>
+<section class="slide">
+    <h2>Agenda</h2>
+    <ol>
+        <li>Traditional websites vs SPA</li>
+        <li>Component-based UI</li>
+        <li>React component</li>
+        <li>Component Lifecycle</li>
+        <li>Routing</li>
+    </ol>
+    <p class="note">It should be enough to start working with React</p>
+</section>
 
-    <section class="slide red clear">
-        <h2 class="red-title">Traditional websites vs SPA</h2>
-    </section>
+<section class="slide red clear">
+    <h2 class="red-title">Traditional websites vs SPA</h2>
+</section>
 
-    <section class="slide">
-        <h2 class="shout">Traditional websites</h2>
-    </section>
+<section class="slide">
+    <h2 class="shout">Traditional websites</h2>
+</section>
 
-    <section class="slide">
-        <img src="pictures/stackoverflow.png" class="cover" alt="" width="80%">
-    </section>
+<section class="slide">
+    <img src="pictures/stackoverflow.png" class="cover" alt="" width="80%">
+</section>
 
-    <section class="slide">
-        <h2>How traditional websites work</h2>
-        <img src="pictures/mpa-lifecycle.png" class="place shadow" width="60%">
-    </section>
+<section class="slide">
+    <h2>How traditional websites work</h2>
+    <img src="pictures/mpa-lifecycle.png" class="place shadow" width="60%">
+</section>
 
-    <section class="slide">
-        <h2 class="shout">Single Page Application</h2>
-    </section>
+<section class="slide">
+    <h2 class="shout">Single Page Application</h2>
+</section>
 
-    <section class="slide">
-        <img src="pictures/facebook.png" class="cover" alt="" width="80%">
-    </section>
+<section class="slide">
+    <img src="pictures/facebook.png" class="cover" alt="" width="80%">
+</section>
 
-    <section class="slide">
-        <h2>How it works</h2>
-        <img src="pictures/spa-lifecycle.png" class="place shadow" width="60%">
-    </section>
+<section class="slide">
+    <h2>How it works</h2>
+    <img src="pictures/spa-lifecycle.png" class="place shadow" width="60%">
+</section>
 
-    <section class="slide">
-        <h2>Traditional websites vs SPA</h2>
-        <ol>
-            <li>Speed</li>
-            <li>Code complexity</li>
-            <li>SEO and social media sharing</li>
-            <li>UX</li>
-        </ol>
-    </section>
+<section class="slide">
+    <h2>Traditional websites vs SPA</h2>
+    <ol>
+        <li>Speed</li>
+        <li>Code complexity</li>
+        <li>SEO and social media sharing</li>
+    </ol>
+</section>
 
-
-    <section class="slide">
-        <h2>Speed</h2>
-        <div class="double">
-            <div>
-                <div style="font-size: 1.5em; line-height: 1.3em; margin-bottom: 40px">Traditional websites</div>
-                <ul>
-                    <li>Fast first load</li>
-                    <li>Reload of page on every call</li>
-                </ul>
-            </div>
-            <div>
-                <div style="font-size: 1.5em; line-height: 1.3em; margin-bottom: 40px">SPA</div>
-                <ul>
-                    <li>Slow first load due big js bundle</li>
-                    <li>No need for reload</li>
-                </ul>
-            </div>
+<section class="slide">
+    <h2>Code complexity</h2>
+    <div class="columns two">
+        <div>
+            <h3>Traditional website</h3>
+            <ul class="next">
+                <li>Fast first load</li>
+                <li>Reload of page on every call</li>
+            </ul>
         </div>
-    </section>
-
-    <section class="slide">
-        <h2>Code complexity</h2>
-        <div class="double">
-            <div>
-                <div style="font-size: 1.5em; line-height: 1.3em; margin-bottom: 40px">Traditional websites</div>
-                <ul>
-                    <li>Frontend is highly coupled with backend</li>
-                    <li>Hard to maintain state</li>
-                </ul>
-            </div>
-            <div>
-                <div style="font-size: 1.5em; line-height: 1.3em; margin-bottom: 40px">SPA</div>
-                <ul>
-                    <li>SPA is similar to mobile apps. It's completely separate from backend</li>
-                    <li>Great developer experience</li>
-                </ul>
-            </div>
+        <div><h3>SPA</h3>
+            <ul class="next">
+                <li>Slow first load due big js bundle</li>
+                <li>No need for reload</li>
+            </ul>
         </div>
-    </section>
+    </div>
+</section>
 
-
-    <section class="slide">
-        <h2>SEO and social media sharing</h2>
-        <div class="double">
-            <div>
-                <div style="font-size: 1.5em; line-height: 1.3em; margin-bottom: 40px">Traditional websites</div>
-                <ul>
-                    <li>Works without js(pure html/css from server)</li>
-                    <li>Good SEO support</li>
-                </ul>
-            </div>
-            <div>
-                <div style="font-size: 1.5em; line-height: 1.3em; margin-bottom: 40px">SPA</div>
-                <ul>
-                    <li>Need js to work properly</li>
-                    <li>It takes additional effort to make it work with SEO and social media sharing</li>
-                </ul>
-            </div>
+<section class="slide">
+    <h2>Code complexity</h2>
+    <div class="columns two">
+        <div>
+            <h3>Traditional website</h3>
+            <ul class="next">
+                <li>Frontend is highly coupled with backend</li>
+                <li>Hard to maintain state</li>
+            </ul>
         </div>
-    </section>
+        <div><h3>SPA</h3>
+            <ul class="next">
+                <li>SPA is similar to mobile apps. It's completely separate from backend</li>
+                <li>Great developer experience</li>
+            </ul>
+        </div>
+    </div>
+</section>
 
-    <div class="progress"></div>
+<section class="slide">
+    <h2>SEO and social media sharing</h2>
+    <div class="columns two">
+        <div>
+            <h3>Traditional website</h3>
+            <ul class="next">
+                <li>Works without js(pure html/css from server)</li>
+                <li>Good SEO support</li>
+            </ul>
+        </div>
+        <div><h3>SPA</h3>
+            <ul class="next">
+                <li>Need js to work properly</li>
+                <li>It takes additional effort to make it work with SEO and social media sharing</li>
+            </ul>
+        </div>
+    </div>
+</section>
 
-    <script src="../src/shower/shower.min.js"></script>
-    <!-- Copyright © 3000 Yours Truly, Famous Inc. -->
+<div class="progress"></div>
+
+<script src="../src/shower/shower.min.js"></script>
+<!-- Copyright © 3000 Yours Truly, Famous Inc. -->
 
 </body>
 </html>
