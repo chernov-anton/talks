@@ -8,12 +8,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../src/shower/themes/itechart/styles/screen-16x10.css">
     <link rel="stylesheet" href="../src/shower/themes/ribbon/styles/slide/elements/columns.css">
+    <link rel="stylesheet"
+          href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css">
 </head>
 <body class="shower list">
 
 <header class="caption">
     <h1>React js</h1>
-    <p>Chernov Anton, Software Engineer</p>
+    <p><a href="">Chernov Anton</a>, iTechArt</p>
 </header>
 
 <section class="slide title" id="cover">
@@ -132,10 +134,92 @@
     </div>
 </section>
 
+<section class="slide red clear">
+    <h2 class="red-title">Component-based UI</h2>
+</section>
+
+<section class="slide">
+    <h2 class="shout">Component</h2>
+    <footer class="footer">
+        <p>An encapsulated set of behavior and logic, with a well-known interface or API to access that component’s
+            functionality</p>
+    </footer>
+</section>
+
+<section class="slide">
+    <img src="pictures/components.png" class="cover" alt="">
+</section>
+
+<section class="slide">
+    <div class="double">
+        <img src="pictures/components-highlight.png" alt="">
+        <ul>
+            <li style="color: orange">FilterableProductTable (orange)</li>
+            <li style="color: blue">SearchBar (blue)</li>
+            <li style="color: green">ProductTable (green)</li>
+            <li style="color: turquoise">ProductCategoryRow (turquoise)</li>
+            <li style="color: red;">ProductRow (red)</li>
+        </ul>
+    </div>
+</section>
+
+<!--TODO add three representation-->
+
+<section class="slide">
+    <h2>Hello world</h2>
+    <iframe height="400" style="width: 100%;" scrolling="no" title="React start - 1"
+            src="//codepen.io/toxa_black/embed/preview/JQmJYy/?height=265&theme-id=light&default-tab=js,result"
+            frameborder="no" allowtransparency="true" allowfullscreen="true">
+        See the Pen <a href='https://codepen.io/toxa_black/pen/JQmJYy/'>React start - 1</a> by Anton
+        (<a href='https://codepen.io/toxa_black'>@toxa_black</a>) on <a href='https://codepen.io'>CodePen</a>.
+    </iframe>
+</section>
+
+<section class="slide">
+    <h2 class="shout">JSX</h2>
+</section>
+
+<section class="slide">
+    <h2>JSX</h2>
+    <pre><code class="hljs jsx">
+ReactDOM.render(
+  &#x3C;h1&#x3E;Hello, world!&#x3C;/h1&#x3E;,
+  document.getElementById(&#x27;root&#x27;)
+);
+    </code></pre>
+</section>
+
+<section class="slide">
+    <h2>JSX</h2>
+    <pre><code class="hljs jsx">
+const name = &#x27;Student&#x27;;
+const element = &#x3C;h1&#x3E;Hello, {name}&#x3C;/h1&#x3E;;
+
+ReactDOM.render(
+  element,
+  document.getElementById(&#x27;root&#x27;)
+);
+    </code></pre>
+
+</section><section class="slide">
+    <h2>JSX</h2>
+    <pre><code class="hljs jsx">
+const UserGreeting = (props) =&#x3E; {
+  return &#x3C;h1&#x3E;Hello, {props.user}!&#x3C;/h1&#x3E;
+}
+
+ReactDOM.render(
+  &#x3C;UserGreeting user=&#x22;Student&#x22;/&#x3E;,
+  document.getElementById(&#x27;root&#x27;)
+);
+    </code></pre>
+</section>
+
 <div class="progress"></div>
 
 <script src="../src/shower/shower.min.js"></script>
-<!-- Copyright © 3000 Yours Truly, Famous Inc. -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 
 </body>
 </html>
