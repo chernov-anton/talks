@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="pictures/favicon.ico">
     <link rel="stylesheet" href="../src/shower/themes/itechart/styles/screen-16x10.css">
     <link rel="stylesheet" href="../src/shower/themes/ribbon/styles/slide/elements/columns.css">
     <link href="../src/prism/prism.css" rel="stylesheet"/>
@@ -13,6 +14,15 @@
         .slide pre code {
             width: 100%;
             line-height: 1.5;
+        }
+
+        .slide .inline-code {
+            background: none;
+        }
+
+        .slide table th {
+            line-height: 1.2;
+            padding: 5px;
         }
     </style>
 </head>
@@ -160,14 +170,14 @@
 <section class="slide">
     <h2>JSX</h2>
     <pre><code class="language-jsx"><!--ReactDOM.render(
-  <h1>Hello, Student!</h1>,
+  <h1>Hello, world!</h1>,
   document.getElementById('root')
 );--></code></pre>
 </section>
 
 <section class="slide">
     <h2>JSX</h2>
-    <pre><code class="language-jsx"><!--const name = 'Student';
+    <pre><code class="language-jsx"><!--const name = 'react learner';
 const element = <h1>Hello, {name}</h1>;
 
 ReactDOM.render(
@@ -177,15 +187,30 @@ ReactDOM.render(
 </section>
 
 <section class="slide">
-    <h2>JSX</h2>
-    <pre><code class="language-jsx"><!--const UserGreeting = (props) => {
-  return <h1>Hello, {props.user}!</h1>
-}
-
-ReactDOM.render(
-  <UserGreeting user="Student"/>,
-  document.getElementById('root')
-);--></code></pre>
+    <h2>Code complexity</h2>
+    <table style="table-layout: fixed">
+        <tr class="next">
+            <th scope="row">Embed JS expression</th>
+            <td><code class="language-jsx inline-code">{ a + b }</code></td>
+        </tr>
+        <tr class="next">
+            <th scope="row">Specify attributes</th>
+            <td><code class="language-jsx inline-code">src={user.avatarUrl}</code></td>
+        </tr>
+        <tr class="next">
+            <th scope="row">Close empty tag with />, like XML</th>
+            <td><code class="language-jsx inline-code">&#x3C;img/&#x3E; &#x3C;div/&#x3E;</code>
+            </td>
+        </tr>
+        <tr class="next">
+            <th scope="row">Reserved words</th>
+            <td><code class="language-jsx inline-code">class - className, for - htmlFor</code></td>
+        </tr>
+        <tr class="next">
+            <th scope="row">React DOM escapes values before rendering. This helps prevent XSS attacks</th>
+            <td><code class="language-jsx inline-code">& becomes &#x26;amp; < becomes &#x26;lt;</code></td>
+        </tr>
+    </table>
 </section>
 
 <section class="slide">
@@ -194,6 +219,18 @@ ReactDOM.render(
         <p>An encapsulated set of behavior and logic, with a well-known interface or API to access that component’s
             functionality</p>
     </footer>
+</section>
+
+<section class="slide">
+    <h2>Component</h2>
+    <pre><code class="language-jsx"><!--const UserGreeting = (props) => {
+    return <h1>Hello, {props.user}!</h1>
+}
+
+ReactDOM.render(
+    <UserGreeting user="react learner"/>,
+    document.getElementById('root')
+);--></code></pre>
 </section>
 
 <section class="slide">
@@ -216,14 +253,25 @@ class UserGreeting extends React.Component {
 <section class="slide">
     <div class="double">
         <img src="pictures/components-highlight.png" alt="">
-        <ul>
-            <li style="color: orange">FilterableProductTable (orange)</li>
-            <li style="color: blue">SearchBar (blue)</li>
-            <li style="color: green">ProductTable (green)</li>
-            <li style="color: turquoise">ProductCategoryRow (turquoise)</li>
-            <li style="color: red;">ProductRow (red)</li>
+        <ul id="three">
+            <li style="color: orange">FilterableProductTable
+                <ul>
+                    <li style="color: blue">SearchBar</li>
+                    <li style="color: green">ProductTable
+                        <ul>
+                            <li style="color: turquoise">ProductCategoryRow</li>
+                            <li style="color: red;">ProductRow</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
         </ul>
     </div>
+    <style>
+        #three li:before {
+            color: inherit;
+        }
+    </style>
 </section>
 
 <!--TODO add three representation-->
