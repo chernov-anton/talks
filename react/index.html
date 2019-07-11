@@ -16,6 +16,10 @@
             line-height: 1.5;
         }
 
+        .slide pre code.small {
+            font-size: 0.7em;
+        }
+
         .slide .inline-code {
             background: none;
         }
@@ -50,7 +54,7 @@
         <li>Component Lifecycle</li>
         <li>Routing</li>
     </ol>
-    <p class="note">It should be enough to start working with React</p>
+    <p class="note">You will be able to write you fits react app!</p>
 </section>
 
 <section class="slide red clear">
@@ -282,7 +286,7 @@ class UserGreeting extends React.Component {
 </section>
 
 <section class="slide clear">
-    <h2 class="shout">Static markup</h2>
+    <h2 class="shout">Props demo</h2>
 </section>
 
 <section class="slide no-heading">
@@ -293,6 +297,100 @@ class UserGreeting extends React.Component {
     </p>
     <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 </section>
+
+<section class="slide clear">
+    <h2 class="shout">Props</h2>
+</section>
+
+<section class="slide">
+    <h2>Props</h2>
+    <ol>
+        <li>Props are Read-Only</li>
+        <li>Passed from parent only</li>
+        <li>Cannot be changed in the child</li>
+        <li>To modify a child, you re-render it with new props</li>
+    </ol>
+</section>
+
+<!-- TODO add info about props comparison and key prop-->
+
+
+<section class="slide clear">
+    <h2 class="shout">State Demo</h2>
+</section>
+
+<section class="slide no-heading">
+    <p class="codepen" data-height="500" data-theme-id="light" data-default-tab="js,result" data-user="toxa_black" data-slug-hash="KjJLQy" data-preview="true" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="React start - 3">
+  <span>See the Pen <a href="https://codepen.io/toxa_black/pen/KjJLQy/">
+  React start - 3</a> by Anton (<a href="https://codepen.io/toxa_black">@toxa_black</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+    </p>
+    <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+</section>
+
+
+<section class="slide">
+    <h2>State</h2>
+    <ol>
+        <li>Change the component from the inside without props</li>
+        <li>Similar to props, but private and fully controlled by the component.</li>
+        <li>One-way binding: HTML doesn’t change the component, it only raises events that the component respond to.</li>
+    </ol>
+</section>
+
+<section class="slide">
+    <h2>Component</h2>
+    <pre><code class="language-jsx small"><!--class FilterableProductTable extends React.Component {
+    render() {
+        return (
+            <div className="m-5">
+                <SearchBar />
+                <ProductTable products={this.props.products}/>
+            </div>
+        );
+    }
+}--></code></pre>
+</section>
+
+<section class="slide">
+    <h2>Component</h2>
+    <pre><code class="language-jsx small"><!--class FilterableProductTable extends React.Component {
+    state = {
+        searchText: ''
+    };
+
+    render() {
+        return (
+            <div className="m-5">
+                <SearchBar searchText={this.state.searchText}/>
+                <ProductTable searchText={this.state.searchText}/>
+            </div>
+        );
+    }
+}--></code></pre>
+</section>
+<section class="slide">
+    <h2>Component</h2>
+    <pre><code class="language-jsx small"><!--class FilterableProductTable extends React.Component {
+    state = {
+        searchText: ''
+    };
+
+    handleSearchTextChange = (searchText) => {
+        this.setState({ searchText });
+    };
+
+    render() {
+        return (
+            <div className="m-5">
+                <SearchBar searchText={this.state.searchText} handleSearchTextChange={this.handleSearchTextChange}/>
+                <ProductTable searchText={this.state.searchText} products={this.props.products}/>
+            </div>
+        );
+    }
+}--></code></pre>
+</section>
+
 
 <div class="progress"></div>
 
