@@ -158,7 +158,10 @@
 </section>
 
 <section class="slide no-heading">
-    <p class="codepen" data-height="500" data-theme-id="light" data-default-tab="js,result" data-user="toxa_black" data-slug-hash="JQmJYy" style="height: 500px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="React start - 1">
+    <p class="codepen" data-height="500" data-theme-id="light" data-default-tab="js,result" data-user="toxa_black"
+       data-slug-hash="JQmJYy"
+       style="height: 500px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;"
+       data-pen-title="React start - 1">
   <span>See the Pen <a href="https://codepen.io/toxa_black/pen/JQmJYy/">
   React start - 1</a> by Anton (<a href="https://codepen.io/toxa_black">@toxa_black</a>)
   on <a href="https://codepen.io">CodePen</a>.</span>
@@ -188,8 +191,6 @@ ReactDOM.render(
   document.getElementById('root')
 );--></code></pre>
 </section>
-
-<!--TODO add slide with jsx explained-->
 
 <section class="slide">
     <h2>Code complexity</h2>
@@ -282,20 +283,7 @@ class UserGreeting extends React.Component {
 </section>
 
 <section class="slide">
-    <img src="pictures/components-jsx.png" class="cover"  alt="" width="90%">
-</section>
-
-<section class="slide clear">
-    <h2 class="shout">Props demo</h2>
-</section>
-
-<section class="slide no-heading">
-    <p class="codepen" data-height="500" data-theme-id="light" data-default-tab="js,result" data-user="toxa_black" data-slug-hash="mZQwKQ" data-preview="true" style="height: 600px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="React start - 2">
-  <span>See the Pen <a href="https://codepen.io/toxa_black/pen/mZQwKQ/">
-  React start - 2</a> by Anton (<a href="https://codepen.io/toxa_black">@toxa_black</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-    </p>
-    <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+    <img src="pictures/components-jsx.png" class="cover" alt="" width="90%">
 </section>
 
 <section class="slide clear">
@@ -316,30 +304,38 @@ class UserGreeting extends React.Component {
 
 
 <section class="slide clear">
-    <h2 class="shout">State Demo</h2>
+    <h2 class="shout">Props demo</h2>
 </section>
 
 <section class="slide no-heading">
-    <p class="codepen" data-height="500" data-theme-id="light" data-default-tab="js,result" data-user="toxa_black" data-slug-hash="KjJLQy" data-preview="true" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="React start - 3">
-  <span>See the Pen <a href="https://codepen.io/toxa_black/pen/KjJLQy/">
-  React start - 3</a> by Anton (<a href="https://codepen.io/toxa_black">@toxa_black</a>)
+    <p class="codepen" data-height="500" data-theme-id="light" data-default-tab="js,result" data-user="toxa_black"
+       data-slug-hash="mZQwKQ" data-preview="true"
+       style="height: 600px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;"
+       data-pen-title="React start - 2">
+  <span>See the Pen <a href="https://codepen.io/toxa_black/pen/mZQwKQ/">
+  React start - 2</a> by Anton (<a href="https://codepen.io/toxa_black">@toxa_black</a>)
   on <a href="https://codepen.io">CodePen</a>.</span>
     </p>
     <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 </section>
 
 
+<section class="slide clear">
+    <h2 class="shout">State</h2>
+</section>
+
 <section class="slide">
     <h2>State</h2>
     <ol>
         <li>Change the component from the inside without props</li>
         <li>Similar to props, but private and fully controlled by the component.</li>
-        <li>One-way binding: HTML doesn’t change the component, it only raises events that the component respond to.</li>
+        <li>One-way binding: HTML doesn't change the component, it only raises events that the component respond to.
+        </li>
     </ol>
 </section>
 
 <section class="slide">
-    <h2>Component</h2>
+    <h2>Stateless</h2>
     <pre><code class="language-jsx small"><!--class FilterableProductTable extends React.Component {
     render() {
         return (
@@ -353,7 +349,7 @@ class UserGreeting extends React.Component {
 </section>
 
 <section class="slide">
-    <h2>Component</h2>
+    <h2>State</h2>
     <pre><code class="language-jsx small"><!--class FilterableProductTable extends React.Component {
     state = {
         searchText: ''
@@ -369,26 +365,119 @@ class UserGreeting extends React.Component {
     }
 }--></code></pre>
 </section>
+
 <section class="slide">
-    <h2>Component</h2>
-    <pre><code class="language-jsx small"><!--class FilterableProductTable extends React.Component {
-    state = {
-        searchText: ''
-    };
+    <h2>Set state</h2>
+    <pre><code class="language-jsx small"><!--handleSearchTextChange = (searchText) => {
+    this.setState({ searchText });
+};
 
-    handleSearchTextChange = (searchText) => {
-        this.setState({ searchText });
-    };
-
-    render() {
-        return (
-            <div className="m-5">
-                <SearchBar searchText={this.state.searchText} handleSearchTextChange={this.handleSearchTextChange}/>
-                <ProductTable searchText={this.state.searchText} products={this.props.products}/>
-            </div>
-        );
-    }
+render() {
+    return (
+        <div className="m-5">
+            <SearchBar
+                searchText={this.state.searchText}
+                handleSearchTextChange={this.handleSearchTextChange}
+             />
+            <ProductTable searchText={this.state.searchText} products={this.props.products}/>
+        </div>
+    );
 }--></code></pre>
+</section>
+
+<!--TODO add more info about set state-->
+
+<section class="slide">
+    <h2>Event handler</h2>
+    <pre><code class="language-jsx small"><!--onChange = (e) => {
+    this.props.handleSearchTextChange(e.target.value)
+};
+
+render() {
+    return (
+        <form>
+            <input
+                 type="text"
+                 placeholder="Search..."
+                 value={this.props.text}
+                 onChange={this.onChange}
+            />
+         </form>
+    );
+}--></code></pre>
+</section>
+
+<section class="slide clear">
+    <h2 class="shout">State Demo</h2>
+</section>
+
+<section class="slide no-heading">
+    <p class="codepen" data-height="500" data-theme-id="light" data-default-tab="js,result" data-user="toxa_black"
+       data-slug-hash="KjJLQy" data-preview="true"
+       style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;"
+       data-pen-title="React start - 3">
+  <span>See the Pen <a href="https://codepen.io/toxa_black/pen/KjJLQy/">
+  React start - 3</a> by Anton (<a href="https://codepen.io/toxa_black">@toxa_black</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+    </p>
+    <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+</section>
+
+<section class="slide clear">
+    <h2 class="shout">Refs</h2>
+</section>
+
+<section class="slide">
+    <h2>Refs</h2>
+    <ol>
+        <li>Managing focus, text selection, or media playback.</li>
+        <li>Triggering imperative animations.</li>
+        <li>Integrating with third-party DOM libraries.</li>
+    </ol>
+</section>
+
+<section class="slide clear">
+    <h2 class="shout">Avoid using refs for anything that can be done declaratively</h2>
+</section>
+
+<section class="slide clear">
+    <h2 class="shout">Refs demo</h2>
+</section>
+
+<section class="slide no-heading">
+    <p class="codepen" data-height="500" data-theme-id="light" data-default-tab="js,result" data-user="toxa_black"
+       data-slug-hash="ZdPgVp" data-preview="true"
+       style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;"
+       data-pen-title="React start - 4">
+  <span>See the Pen <a href="https://codepen.io/toxa_black/pen/ZdPgVp/">
+  React start - 4</a> by Anton (<a href="https://codepen.io/toxa_black">@toxa_black</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+    </p>
+    <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+</section>
+
+<section class="slide red clear">
+    <h2 class="red-title">Component lifecycle</h2>
+</section>
+
+<section class="slide">
+    <img src="pictures/lifecycle_short.jpg" class="cover" alt="" width="90%">
+</section>
+
+<section class="slide clear">
+    <h2 class="shout">Refs demo</h2>
+</section>
+
+<section class="slide no-heading">
+    <p class="codepen" data-height="500" data-theme-id="light" data-default-tab="js,result" data-user="toxa_black"
+       data-slug-hash="OeGLmP" data-preview="true"
+       style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;"
+       data-pen-title="React start - 5">
+  <span>See the Pen <a href="https://codepen.io/toxa_black/pen/OeGLmP/">
+  React start - 5</a> by Anton (<a href="https://codepen.io/toxa_black">@toxa_black</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+    </p>
+    <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 </section>
 
 
