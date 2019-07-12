@@ -465,13 +465,133 @@ render() {
 </section>
 
 <section class="slide clear">
-    <h2 class="shout">Refs demo</h2>
+    <h2 class="shout">Lets write Clock</h2>
+</section>
+
+<section class="slide">
+    <h2>Constructor</h2>
+    <pre><code class="language-jsx"><!--class Clock extends React.Component {
+  constructor(props) {
+      super(props);
+      this.state = {date: new Date()};
+  }--></code></pre>
+    <div class="note">Is equal to</div>
+    <pre><code class="language-jsx"><!--class Clock extends React.Component {
+  state = {date: new Date()};--></code></pre>
+</section>
+
+<section class="slide">
+    <h2>Constructor</h2>
+    <ul>
+        <li>Don't forget to call <code class="language-jsx inline-code">super(props);</code></li>
+        <li>Good for init of state</li>
+        <li>Bad for using <code class="language-jsx inline-code">this.setState()</code></li>
+        <li>Bad for running side effects
+            <ul>
+                <li>No api calls</li>
+                <li>No dom manipulations</li>
+            </ul>
+        </li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>Render</h2>
+    <pre><code class="language-jsx"><!--render() {
+  return (
+    <div>
+      <h1>
+        It is {this.state.date.toLocaleTimeString()}.
+      </h1>
+    </div>
+  );
+}--></code></pre>
+</section>
+
+<section class="slide">
+    <h2>Render</h2>
+    <ul>
+        <li>It's only required method in a class component.</li>
+        <li>Called only on
+            <ul>
+                <li>New props from parent</li>
+                <li><code class="language-jsx inline-code">this.setState()</code></li>
+                <li><code class="language-jsx inline-code">this.forceUpdate()</code></li>
+            </ul>
+        </li>
+        <li>Should be pure
+            <ul>
+                <li>No side effects</li>
+                <li>No dom manipulations</li>
+            </ul>
+        </li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>componentDidMount</h2>
+    <pre><code class="language-jsx"><!--componentDidMount() {
+  this.timerID = setInterval(
+    () => this.tick(),
+    1000
+  );
+}
+
+tick() {
+  this.setState({
+    date: new Date()
+  });
+}--></code></pre>
+</section>
+
+<section class="slide">
+    <h2>componentDidMount</h2>
+    <ul>
+        <li>Called after first render</li>
+        <li>You can call <code class="language-jsx inline-code">this.setState()</code> here
+        </li>
+        <li>Should be used for running side effects
+            <ul>
+                <li>Fetching data from server</li>
+                <li>Subscriptions</li>
+                <li>Timers</li>
+                <li>Manipulations that require dom</li>
+            </ul>
+        </li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>componentWillUnmount</h2>
+    <pre><code class="language-jsx"><!--componentWillUnmount() {
+    clearInterval(this.timerID);
+  }--></code></pre>
+</section>
+
+<section class="slide">
+    <h2>componentWillUnmount</h2>
+    <ul>
+        <li>Called before component will be removed from DOM and destroyed</li>
+        <li>You <b>should not call</b> <code class="language-jsx inline-code">this.setState()</code> here
+        </li>
+        <li>Should be used for cancelling
+            <ul>
+                <li>Async requests to server</li>
+                <li>Subscriptions</li>
+                <li>Timers</li>
+            </ul>
+        </li>
+    </ul>
+</section>
+
+<section class="slide clear">
+    <h2 class="shout">Demo</h2>
 </section>
 
 <section class="slide no-heading">
     <p class="codepen" data-height="500" data-theme-id="light" data-default-tab="js,result" data-user="toxa_black"
        data-slug-hash="OeGLmP" data-preview="true"
-       style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;"
+       style="height: 1000px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;"
        data-pen-title="React start - 5">
   <span>See the Pen <a href="https://codepen.io/toxa_black/pen/OeGLmP/">
   React start - 5</a> by Anton (<a href="https://codepen.io/toxa_black">@toxa_black</a>)
@@ -479,7 +599,6 @@ render() {
     </p>
     <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 </section>
-
 
 <div class="progress"></div>
 
