@@ -600,6 +600,117 @@ tick() {
     <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 </section>
 
+<section class="slide">
+    <h2>componentWillUnmount</h2>
+    <pre><code class="language-jsx"><!--componentDidUpdate(prevProps) {
+  if (this.props.userID !== prevProps.userID) {
+    this.fetchData(this.props.userID);
+  }
+}--></code></pre>
+</section>
+
+<section class="slide">
+    <h2>componentDidUpdate</h2>
+    <ul>
+        <li>Called after every update</li>
+        <li>Isn't called after initial render</li>
+        <li>Can be used for running side effects but <b>don't forget to add condition</b>
+        </li>
+    </ul>
+</section>
+
+<section class="slide clear">
+    <h2 class="shout">Component lifecycle. Repeat</h2>
+</section>
+
+<section class="slide">
+    <img src="pictures/lifecycle_short.jpg" class="cover" alt="" width="90%">
+</section>
+
+<section class="slide clear">
+    <h2 class="shout">Component lifecycle. Let's extend</h2>
+</section>
+
+<section class="slide">
+    <img src="pictures/lifecycle.jpeg" class="cover" alt="" width="90%">
+</section>
+
+
+<section class="slide">
+    <h2>getDerivedStateFromProps</h2>
+    <pre><code class="language-jsx"><!--static getDerivedStateFromProps(props, state) {
+  if (props.selected !== state.selected) {
+    return {
+      selected: props.selected,
+    };
+  }
+
+  // Return null if the state hasn't changed
+  return null;
+}--></code></pre>
+</section>
+
+<section class="slide">
+    <h2>getDerivedStateFromProps</h2>
+    <ul>
+        <li>Called before each render</li>
+        <li>It's static!</li>
+        <li><a href="https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html" target="_blank">You
+            probably don't need it</a>
+        </li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>shouldComponentUpdate</h2>
+    <pre><code class="language-jsx"><!--shouldComponentUpdate(props, state) {
+  return this.props.resultList !== props.resultList
+}--></code></pre>
+</section>
+
+<section class="slide">
+    <h2>shouldComponentUpdate</h2>
+    <ul>
+        <li>Called before rendering when new props or state are being received.</li>
+        <li>By default return true</li>
+        <li>Should be used for performance optimization</li>
+        <li><a href="https://reactjs.org/docs/react-api.html#reactpurecomponent" target="_blank">Pure component</a>
+        </li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>getSnapshotBeforeUpdate</h2>
+    <pre><code class="language-jsx small"><!--getSnapshotBeforeUpdate(prevProps, prevState) {
+  if (prevProps.list.length < this.props.list.length) {
+    const list = this.listRef.current;
+    return list.scrollHeight - list.scrollTop;
+  }
+  return null;
+}
+
+componentDidUpdate(prevProps, prevState, snapshot) {
+  if (snapshot !== null) {
+    const list = this.listRef.current;
+    list.scrollTop = list.scrollHeight - snapshot;
+  }
+}--></code></pre>
+</section>
+
+<section class="slide">
+    <h2>getSnapshotBeforeUpdate</h2>
+    <ul>
+        <li>Called after render method, but <b>before changes applied to DOM</b></li>
+        <li>Result will be passed to <code class="language-jsx inline-code">componentDidMount()</code> as third argument
+        </li>
+        <li>Help to save some information from the DOM (e.g.
+            <a href="https://codesandbox.io/s/2w2zrnz89r?from-embed"
+               target="_blank">scroll position</a>)
+            before it is potentially changed
+        </li>
+    </ul>
+</section>
+
 <div class="progress"></div>
 
 <script src="../src/shower/shower.min.js"></script>
