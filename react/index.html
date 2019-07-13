@@ -154,7 +154,7 @@
 </section>
 
 <section class="slide red clear">
-    <h2 class="shout">Hallo World!</h2>
+    <h2 class="shout">Hello World!</h2>
 </section>
 
 <section class="slide no-heading">
@@ -620,14 +620,6 @@ tick() {
 </section>
 
 <section class="slide clear">
-    <h2 class="shout">Component lifecycle. Repeat</h2>
-</section>
-
-<section class="slide">
-    <img src="pictures/lifecycle_short.jpg" class="cover" alt="" width="90%">
-</section>
-
-<section class="slide clear">
     <h2 class="shout">Component lifecycle. Let's extend</h2>
 </section>
 
@@ -710,6 +702,120 @@ componentDidUpdate(prevProps, prevState, snapshot) {
         </li>
     </ul>
 </section>
+
+<section class="slide clear">
+    <h2 class="shout">Component lifecycle. Repeat</h2>
+</section>
+
+<section class="slide">
+    <img src="pictures/lifecycle.jpeg" class="cover" alt="" width="90%">
+</section>
+
+<section class="slide red clear">
+    <h2 class="red-title">Routing</h2>
+</section>
+
+<section class="slide clear">
+    <h2 class="shout">Two main ways</h2>
+</section>
+
+<section class="slide">
+    <h2>Hash router</h2>
+    <p>
+    <h3><a>site.com/#/users/1</a></h3></p>
+    <ul>
+        <li>Hash in the url</li>
+        <li>The server never sees the hash</li>
+        <li>Handled 100% in-browser</li>
+        <li>Do not by default result in page reload</li>
+        <li>Buttons and links are plain JS-free <code class="language-jsx inline-code"><!--<a>tags</a>--></code>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>Browser router</h2>
+    <p>
+    <h3><a>site.com/users/1</a></h3></p>
+    <ul>
+        <li>“Normal” URLs</li>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/History_API" target="_blank">The HTML5 History
+            API</a></li>
+        <li>Multiple routes indexed by Google</li>
+        <li>Best choice by default</li>
+    </ul>
+</section>
+
+<section class="slide no-heading">
+    <iframe src="https://codesandbox.io/embed/react-router-basic-qx95x?autoresize=1&fontsize=14&view=preview"
+            title="React Router - Basic"
+            allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media"
+            style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+            sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
+</section>
+
+<section class="slide">
+    <div class="terminal" data-content="~/terminal"><p>npm install react-router-dom</p></div>
+</section>
+
+<section class="slide">
+    <h2>Routes</h2>
+    <pre><code class="language-jsx small"><!--import {BrowserRouter, Route} from "react-router-dom";
+
+const BasicExample = () => {
+  return (
+    <BrowserRouter>
+        <Route exact path="/" component={Home}/>
+        <Route path="/about" component={About}/>
+        <Route path="/topics" component={Topics}/>
+    </BrowserRouter>
+  );
+};--></code></pre>
+</section>
+
+<section class="slide">
+    <h2>Links</h2>
+    <pre><code class="language-jsx small"><!--import {BrowserRouter, Route, Link} from "react-router-dom";
+
+const BasicExample = () => {
+  return (
+    <BrowserRouter>
+      <div>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/about">About</Link>
+          </li>
+          <li>
+            <Link to="/topics">Topics</Link>
+          </li>
+        </ul>...--></code></pre>
+</section>
+
+<section class="slide">
+    <h2>Add params</h2>
+    <pre><code class="language-jsx small"><!--<ul>
+  <li>
+    <Link to={`${match.url}/rendering`}>Rendering with React</Link>
+  </li>
+  <li>
+    <Link to={`${match.url}/components`}>Components</Link>
+  </li>
+  <li>
+    <Link to={`${match.url}/props-v-state`}>Props v. State</Link>
+  </li>
+</ul>
+
+<Route path={`${match.path}/:topicId`} component={Topic}/>
+--></code></pre>
+</section>
+
+<section class="slide active" id="31">
+    <h2 class="shout no-bg"><a href="https://codesandbox.io/s/react-router-basic-qx95x?from-embed" target="_blank"
+                               class="link link-codepen">Demo</a></h2>
+</section>
+
 
 <div class="progress"></div>
 
