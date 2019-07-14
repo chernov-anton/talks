@@ -195,6 +195,11 @@
   <h1>Hello, world!</h1>,
   document.getElementById('root')
 );--></code></pre>
+    <div class="note">Compiles to</div>
+    <pre><code class="language-jsx"><!--ReactDOM.render(
+  React.createElement("h1", null, "Hello, world!"),
+  document.getElementById('root')
+);--></code></pre>
 </section>
 
 <section class="slide">
@@ -268,6 +273,32 @@ class UserGreeting extends React.Component {
 }--></code></pre>
 </section>
 
+<section class="slide clear">
+    <h2 class="shout">Props</h2>
+</section>
+
+<section class="slide">
+    <h2>Props</h2>
+    <ol>
+        <li>Props are Read-Only</li>
+        <li>Passed from parent only</li>
+        <li>Cannot be changed in the child</li>
+        <li>To modify a child, you re-render it with new props</li>
+    </ol>
+</section>
+
+<section class="slide clear">
+    <h2 class="shout">How does it work?</h2>
+</section>
+
+<section class="slide">
+    <img src="pictures/model.png" class="cover" alt="" width="80%">
+</section>
+
+<section class="slide clear">
+    <h2 class="shout">Demo</h2>
+</section>
+
 <section class="slide">
     <div class="double">
         <img src="pictures/components.png" alt="" width="90%">
@@ -302,33 +333,9 @@ class UserGreeting extends React.Component {
     <img src="pictures/components-jsx.png" class="cover" alt="" width="90%">
 </section>
 
-<section class="slide clear">
-    <h2 class="shout">Props</h2>
-</section>
-
-<section class="slide">
-    <h2>Props</h2>
-    <ol>
-        <li>Props are Read-Only</li>
-        <li>Passed from parent only</li>
-        <li>Cannot be changed in the child</li>
-        <li>To modify a child, you re-render it with new props</li>
-    </ol>
-</section>
-
-<!-- TODO add info about props comparison and key prop-->
-
-
-<section class="slide clear">
-    <h2 class="shout">Props demo</h2>
-</section>
-
 <section class="slide no-heading">
-    <p class="codepen" data-height="500" data-theme-id="light" data-default-tab="js,result" data-user="toxa_black"
-       data-slug-hash="mZQwKQ" data-preview="true"
-       style="height: 600px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;"
-       data-pen-title="React start - 2">
-  <span>See the Pen <a href="https://codepen.io/toxa_black/pen/mZQwKQ/">
+    <p class="codepen" data-height="500" data-theme-id="light" data-default-tab="js,result" data-user="toxa_black" data-slug-hash="xoNLeg" data-preview="true" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="React start - 2">
+  <span>See the Pen <a href="https://codepen.io/toxa_black/pen/xoNLeg/">
   React start - 2</a> by Anton (<a href="https://codepen.io/toxa_black">@toxa_black</a>)
   on <a href="https://codepen.io">CodePen</a>.</span>
     </p>
@@ -365,7 +372,7 @@ class UserGreeting extends React.Component {
 </section>
 
 <section class="slide">
-    <h2>State</h2>
+    <h2>Stateful</h2>
     <pre><code class="language-jsx small"><!--class FilterableProductTable extends React.Component {
     state = {
         searchText: ''
@@ -401,8 +408,6 @@ render() {
 }--></code></pre>
 </section>
 
-<!--TODO add more info about set state-->
-
 <section class="slide">
     <h2>Event handler</h2>
     <pre><code class="language-jsx small"><!--onChange = (e) => {
@@ -421,6 +426,20 @@ render() {
          </form>
     );
 }--></code></pre>
+</section>
+
+<section class="slide">
+    <h2>Updating state of state is async</h2>
+    <pre><code class="language-jsx small"><!--state = {
+    searchText: ''
+};
+
+handleSearchTextChange = (searchText) => {
+    console.log(searchText) // 'ball'
+    console.log(this.state.searchText) // ''
+    this.setState({ searchText });
+    console.log(this.state.searchText) // '' WAT???
+};--></code></pre>
 </section>
 
 <section class="slide clear">
@@ -830,6 +849,17 @@ const BasicExample = () => {
 <section class="slide">
     <h2 class="shout no-bg"><a href="https://codesandbox.io/s/react-router-basic-qx95x?from-embed" target="_blank"
                                class="link link-codepen">Demo</a></h2>
+</section>
+
+<section class="slide">
+    <h2>Questions?</h2>
+    <ol>
+        <li>Traditional websites vs SPA</li>
+        <li>Hello world</li>
+        <li>React component</li>
+        <li>Component Lifecycle</li>
+        <li>Routing</li>
+    </ol>
 </section>
 
 <section class="slide">
