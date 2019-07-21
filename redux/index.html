@@ -28,6 +28,10 @@
             line-height: 1.2;
             padding: 5px;
         }
+
+        pre[class*="language-"] {
+            background: none;
+        }
     </style>
 </head>
 <body class="shower list">
@@ -65,7 +69,7 @@
     <h2>Agenda</h2>
     <ol>
         <li>React state management problem</li>
-        <li>One way data binding</li>
+        <li>Data binding</li>
         <li>Redux
             <ol>Actions</ol>
             <ol>Store/State</ol>
@@ -82,7 +86,7 @@
 
 <section class="slide">
     <h2>React state flow</h2>
-    <img src="pictures/react-state.svg" class="place shadow" alt="" width="80%">
+    <img src="pictures/react-state.svg" class="place shadow" alt="" width="50%">
 </section>
 
 <section class="slide">
@@ -92,380 +96,41 @@
 
 <section class="slide">
     <h2>Reality</h2>
-    <img src="pictures/many-components.png" class="place" alt="" width="80%">
+    <img src="pictures/many-components.png" class="place" alt="" width="50%">
 </section>
 
 <section class="slide">
-    <img src="pictures/state-management1.png" class="cover" alt="" width="80%">
-</section>
-
-<section class="slide">
-    <h2 class="shout">Traditional websites</h2>
-</section>
-
-<section class="slide">
-    <img src="pictures/stackoverflow.png" class="cover" alt="" width="80%">
-</section>
-
-<section class="slide">
-    <h2>How traditional websites work</h2>
-    <img src="pictures/mpa-lifecycle.png" class="place shadow" width="60%">
-</section>
-
-<section class="slide">
-    <h2 class="shout">Single Page Application</h2>
-</section>
-
-<section class="slide">
-    <img src="pictures/facebook.png" class="cover" alt="" width="80%">
-</section>
-
-<section class="slide">
-    <h2>How it works</h2>
-    <img src="pictures/spa-lifecycle.png" class="place shadow" width="60%">
-</section>
-
-<section class="slide">
-    <h2>Traditional websites vs SPA</h2>
-    <ol>
-        <li>Speed</li>
-        <li>Code complexity</li>
-        <li>SEO and social media sharing</li>
-    </ol>
-</section>
-
-<section class="slide">
-    <h2>Speed</h2>
-    <div class="columns two">
-        <div>
-            <h3>Traditional website</h3>
-            <ul class="next">
-                <li>Fast first load</li>
-                <li>Reload of page on every call</li>
-            </ul>
-        </div>
-        <div><h3>SPA</h3>
-            <ul class="next">
-                <li>Slow first load due big js bundle</li>
-                <li>No need for reload</li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-<section class="slide">
-    <h2>Code complexity</h2>
-    <div class="columns two">
-        <div>
-            <h3>Traditional website</h3>
-            <ul class="next">
-                <li>Frontend is highly coupled with backend</li>
-                <li>Hard to maintain state</li>
-            </ul>
-        </div>
-        <div><h3>SPA</h3>
-            <ul class="next">
-                <li>SPA is similar to mobile apps. It's completely separate from backend</li>
-                <li>Great developer experience</li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-<section class="slide">
-    <h2>SEO and social media sharing</h2>
-    <div class="columns two">
-        <div>
-            <h3>Traditional website</h3>
-            <ul class="next">
-                <li>Works without js(pure html/css from server)</li>
-                <li>Good SEO support</li>
-            </ul>
-        </div>
-        <div><h3>SPA</h3>
-            <ul class="next">
-                <li>Need js to work properly</li>
-                <li>It takes additional effort to make it work with SEO and social media sharing</li>
-            </ul>
-        </div>
-    </div>
+    <img src="pictures/mvc.png" class="cover" alt="" width="80%">
 </section>
 
 <section class="slide red clear">
-    <h2 class="shout">Hello World!</h2>
-</section>
-
-<section class="slide no-heading">
-    <p class="codepen" data-height="500" data-theme-id="light" data-default-tab="js,result" data-user="toxa_black"
-       data-slug-hash="JQmJYy"
-       style="height: 500px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;"
-       data-pen-title="React start - 1">
-  <span>See the Pen <a href="https://codepen.io/toxa_black/pen/JQmJYy/">
-  React start - 1</a> by Anton (<a href="https://codepen.io/toxa_black">@toxa_black</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-    </p>
-    <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+    <h2 class="red-title">Data binding</h2>
 </section>
 
 <section class="slide">
-    <h2 class="shout">JSX</h2>
-</section>
-
-<section class="slide">
-    <h2>JSX</h2>
-    <pre><code class="language-jsx"><!--ReactDOM.render(
-  <h1>Hello, world!</h1>,
-  document.getElementById('root')
-);--></code></pre>
-    <div class="note">Compiles to</div>
-    <pre><code class="language-jsx"><!--ReactDOM.render(
-  React.createElement("h1", null, "Hello, world!"),
-  document.getElementById('root')
-);--></code></pre>
-</section>
-
-<section class="slide">
-    <h2>JSX</h2>
-    <pre><code class="language-jsx"><!--const name = 'react learner';
-const element = <h1>Hello, {name}</h1>;
-
-ReactDOM.render(
-  element,
-  document.getElementById('root')
-);--></code></pre>
-</section>
-
-<section class="slide">
-    <h2>JSX</h2>
-    <table style="table-layout: fixed">
-        <tr class="next">
-            <th scope="row">Embed JS expression</th>
-            <td><code class="language-jsx inline-code">{ a + b }</code></td>
-        </tr>
-        <tr class="next">
-            <th scope="row">Specify attributes</th>
-            <td><code class="language-jsx inline-code">src={user.avatarUrl}</code></td>
-        </tr>
-        <tr class="next">
-            <th scope="row">Close empty tag with />, like XML</th>
-            <td><code class="language-jsx inline-code">&#x3C;img/&#x3E; &#x3C;div/&#x3E;</code>
-            </td>
-        </tr>
-        <tr class="next">
-            <th scope="row">Reserved words</th>
-            <td><code class="language-jsx inline-code">class - className, for - htmlFor</code></td>
-        </tr>
-        <tr class="next">
-            <th scope="row">React DOM escapes values before rendering. This helps prevent XSS attacks</th>
-            <td><code class="language-jsx inline-code">& becomes &#x26;amp; < becomes &#x26;lt;</code></td>
-        </tr>
-    </table>
-</section>
-
-<section class="slide">
-    <h2 class="shout">Component</h2>
-    <footer class="footer">
-        <p>An encapsulated set of behavior and logic, with a well-known interface or API to access that component’s
-            functionality</p>
-    </footer>
-</section>
-
-<section class="slide">
-    <h2>Component</h2>
-    <pre><code class="language-jsx"><!--const UserGreeting = (props) => {
-    return <h1>Hello, {props.user}!</h1>
-}
-
-ReactDOM.render(
-    <UserGreeting user="react learner"/>,
-    document.getElementById('root')
-);--></code></pre>
-</section>
-
-<section class="slide">
-    <h2>Component</h2>
-    <pre><code class="language-jsx"><!--const UserGreeting = (props) => {
-    return <h1>Hello, {props.user}!</h1>
-};
-
-class UserGreeting extends React.Component {
-    render() {
-        return <h1>Hello, {this.props.user}!</h1>
-    }
-}--></code></pre>
+    <img src="pictures/2-way-and-1-way-data-binding.jpg" class="cover" alt="" width="80%">
 </section>
 
 <section class="slide clear">
-    <h2 class="shout">Props</h2>
-</section>
-
-<section class="slide">
-    <h2>Props</h2>
-    <ol>
-        <li>Props are Read-Only</li>
-        <li>Passed from parent only</li>
-        <li>Cannot be changed in the child</li>
-        <li>To modify a child, you re-render it with new props</li>
-    </ol>
+    <h2 class="shout">No magic here!</h2>
 </section>
 
 <section class="slide clear">
-    <h2 class="shout">How does it work?</h2>
+    <h2 class="shout">But you should maintain it yourself!</h2>
+</section>
+
+<section class="slide red clear">
+    <h2 class="red-title">Redux</h2>
+    <p>A predictable state container for JavaScript apps </p>
 </section>
 
 <section class="slide">
-    <img src="pictures/model.png" class="cover" alt="" width="80%">
-</section>
-
-<section class="slide clear">
-    <h2 class="shout">Demo</h2>
+    <img src="pictures/react-vs-redux.png" class="cover" alt="" width="80%">
 </section>
 
 <section class="slide">
-    <div class="double">
-        <img src="pictures/components.png" alt="" width="90%">
-    </div>
-</section>
-
-<section class="slide">
-    <div class="double">
-        <img src="pictures/components-highlighted.png" alt="" width="90%">
-        <ul id="three">
-            <li style="color: orange">FilterableProductTable
-                <ul>
-                    <li style="color: blue">SearchBar</li>
-                    <li style="color: green">ProductTable
-                        <ul>
-                            <li style="color: turquoise">ProductCategoryRow</li>
-                            <li style="color: red;">ProductRow</li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-    <style>
-        #three li:before {
-            color: inherit;
-        }
-    </style>
-</section>
-
-<section class="slide">
-    <img src="pictures/components-jsx.png" class="cover" alt="" width="90%">
-</section>
-
-<section class="slide no-heading">
-    <p class="codepen" data-height="500" data-theme-id="light" data-default-tab="js,result" data-user="toxa_black" data-slug-hash="xoNLeg" data-preview="true" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="React start - 2">
-  <span>See the Pen <a href="https://codepen.io/toxa_black/pen/xoNLeg/">
-  React start - 2</a> by Anton (<a href="https://codepen.io/toxa_black">@toxa_black</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-    </p>
-    <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
-</section>
-
-
-<section class="slide clear">
-    <h2 class="shout">State</h2>
-</section>
-
-<section class="slide">
-    <h2>State</h2>
-    <ol>
-        <li>Change the component from the inside without props</li>
-        <li>Similar to props, but private and fully controlled by the component.</li>
-        <li>One-way binding: HTML doesn't change the component, it only raises events that the component respond to.
-        </li>
-    </ol>
-</section>
-
-<section class="slide">
-    <h2>Stateless</h2>
-    <pre><code class="language-jsx small"><!--class FilterableProductTable extends React.Component {
-    render() {
-        return (
-            <div className="m-5">
-                <SearchBar />
-                <ProductTable products={this.props.products}/>
-            </div>
-        );
-    }
-}--></code></pre>
-</section>
-
-<section class="slide">
-    <h2>Stateful</h2>
-    <pre><code class="language-jsx small"><!--class FilterableProductTable extends React.Component {
-    state = {
-        searchText: ''
-    };
-
-    render() {
-        return (
-            <div className="m-5">
-                <SearchBar searchText={this.state.searchText}/>
-                <ProductTable searchText={this.state.searchText}/>
-            </div>
-        );
-    }
-}--></code></pre>
-</section>
-
-<section class="slide">
-    <h2>Set state</h2>
-    <pre><code class="language-jsx small"><!--handleSearchTextChange = (searchText) => {
-    this.setState({ searchText });
-};
-
-render() {
-    return (
-        <div className="m-5">
-            <SearchBar
-                searchText={this.state.searchText}
-                handleSearchTextChange={this.handleSearchTextChange}
-             />
-            <ProductTable searchText={this.state.searchText} products={this.props.products}/>
-        </div>
-    );
-}--></code></pre>
-</section>
-
-<section class="slide">
-    <h2>Event handler</h2>
-    <pre><code class="language-jsx small"><!--onChange = (e) => {
-    this.props.handleSearchTextChange(e.target.value)
-};
-
-render() {
-    return (
-        <form>
-            <input
-                 type="text"
-                 placeholder="Search..."
-                 value={this.props.text}
-                 onChange={this.onChange}
-            />
-         </form>
-    );
-}--></code></pre>
-</section>
-
-<section class="slide">
-    <h2>Updating state of state is async</h2>
-    <pre><code class="language-jsx small"><!--state = {
-    searchText: ''
-};
-
-handleSearchTextChange = (searchText) => {
-    console.log(searchText) // 'ball'
-    console.log(this.state.searchText) // ''
-    this.setState({ searchText });
-    console.log(this.state.searchText) // '' WAT???
-};--></code></pre>
-</section>
-
-<section class="slide clear">
-    <h2 class="shout">State Demo</h2>
+    <h2>Redux cycle</h2>
+    <img src="pictures/redux-cycle.png" class="place" alt="" width="80%">
 </section>
 
 <section class="slide no-heading">
@@ -481,416 +146,191 @@ handleSearchTextChange = (searchText) => {
 </section>
 
 <section class="slide clear">
-    <h2 class="shout">Refs</h2>
-</section>
-
-<section class="slide">
-    <h2>Refs</h2>
-    <ol>
-        <li>Managing focus, text selection, or media playback.</li>
-        <li>Triggering imperative animations.</li>
-        <li>Integrating with third-party DOM libraries.</li>
-    </ol>
-</section>
-
-<section class="slide clear">
-    <h2 class="shout">Avoid using refs for anything that can be done declaratively</h2>
-</section>
-
-<section class="slide clear">
-    <h2 class="shout">Refs demo</h2>
-</section>
-
-<section class="slide no-heading">
-    <p class="codepen" data-height="500" data-theme-id="light" data-default-tab="js,result" data-user="toxa_black"
-       data-slug-hash="ZdPgVp" data-preview="true"
-       style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;"
-       data-pen-title="React start - 4">
-  <span>See the Pen <a href="https://codepen.io/toxa_black/pen/ZdPgVp/">
-  React start - 4</a> by Anton (<a href="https://codepen.io/toxa_black">@toxa_black</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-    </p>
-    <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+    <h2 class="shout">Let's rewrite search with redux!</h2>
 </section>
 
 <section class="slide red clear">
-    <h2 class="red-title">Component lifecycle</h2>
+    <h2 class="shout">View</h2>
 </section>
 
 <section class="slide">
-    <img src="pictures/lifecycle_short.jpg" class="cover" alt="" width="90%">
-</section>
-
-<section class="slide clear">
-    <h2 class="shout">Lets write Clock</h2>
-</section>
-
-<section class="slide">
-    <h2>Constructor</h2>
-    <pre><code class="language-jsx"><!--class Clock extends React.Component {
-  constructor(props) {
-      super(props);
-      this.state = {date: new Date()};
-  }--></code></pre>
-    <div class="note">Is equal to</div>
-    <pre><code class="language-jsx"><!--class Clock extends React.Component {
-  state = {date: new Date()};--></code></pre>
-</section>
-
-<section class="slide">
-    <h2>Constructor</h2>
-    <ul>
-        <li>Don't forget to call <code class="language-jsx inline-code">super(props);</code></li>
-        <li>Good for init of state</li>
-        <li>Bad for using <code class="language-jsx inline-code">this.setState()</code></li>
-        <li>Bad for running side effects
-            <ul>
-                <li>No api calls</li>
-                <li>No dom manipulations</li>
-            </ul>
-        </li>
-    </ul>
-</section>
-
-<section class="slide">
-    <h2>Render</h2>
-    <pre><code class="language-jsx"><!--render() {
-  return (
-    <div>
-      <h1>
-        It is {this.state.date.toLocaleTimeString()}.
-      </h1>
-    </div>
-  );
-}--></code></pre>
-</section>
-
-<section class="slide">
-    <h2>Render</h2>
-    <ul>
-        <li>It's only required method in a class component.</li>
-        <li>Called only on
-            <ul>
-                <li>New props from parent</li>
-                <li><code class="language-jsx inline-code">this.setState()</code></li>
-                <li><code class="language-jsx inline-code">this.forceUpdate()</code></li>
-            </ul>
-        </li>
-        <li>Should be pure
-            <ul>
-                <li>No side effects</li>
-                <li>No dom manipulations</li>
-            </ul>
-        </li>
-    </ul>
-</section>
-
-<section class="slide">
-    <h2>componentDidMount</h2>
-    <pre><code class="language-jsx"><!--componentDidMount() {
-  this.timerID = setInterval(
-    () => this.tick(),
-    1000
-  );
-}
-
-tick() {
-  this.setState({
-    date: new Date()
-  });
-}--></code></pre>
-</section>
-
-<section class="slide">
-    <h2>componentDidMount</h2>
-    <ul>
-        <li>Called after first render</li>
-        <li>You can call <code class="language-jsx inline-code">this.setState()</code> here
-        </li>
-        <li>Should be used for running side effects
-            <ul>
-                <li>Fetching data from server</li>
-                <li>Subscriptions</li>
-                <li>Timers</li>
-                <li>Manipulations that require dom</li>
-            </ul>
-        </li>
-    </ul>
-</section>
-
-<section class="slide">
-    <h2>componentWillUnmount</h2>
-    <pre><code class="language-jsx"><!--componentWillUnmount() {
-    clearInterval(this.timerID);
-  }--></code></pre>
-</section>
-
-<section class="slide">
-    <h2>componentWillUnmount</h2>
-    <ul>
-        <li>Called before component will be removed from DOM and destroyed</li>
-        <li>You <b>should not call</b> <code class="language-jsx inline-code">this.setState()</code> here
-        </li>
-        <li>Should be used for cancelling
-            <ul>
-                <li>Async requests to server</li>
-                <li>Subscriptions</li>
-                <li>Timers</li>
-            </ul>
-        </li>
-    </ul>
-</section>
-
-<section class="slide clear">
-    <h2 class="shout">Demo</h2>
-</section>
-
-<section class="slide no-heading">
-    <p class="codepen" data-height="500" data-theme-id="light" data-default-tab="js,result" data-user="toxa_black"
-       data-slug-hash="OeGLmP" data-preview="true"
-       style="height: 1000px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;"
-       data-pen-title="React start - 5">
-  <span>See the Pen <a href="https://codepen.io/toxa_black/pen/OeGLmP/">
-  React start - 5</a> by Anton (<a href="https://codepen.io/toxa_black">@toxa_black</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-    </p>
-    <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
-</section>
-
-<section class="slide">
-    <h2>componentWillUnmount</h2>
-    <pre><code class="language-jsx"><!--componentDidUpdate(prevProps) {
-  if (this.props.userID !== prevProps.userID) {
-    this.fetchData(this.props.userID);
-  }
-}--></code></pre>
-</section>
-
-<section class="slide">
-    <h2>componentDidUpdate</h2>
-    <ul>
-        <li>Called after every update</li>
-        <li>Isn't called after initial render</li>
-        <li>Can be used for running side effects but <b>don't forget to add condition</b>
-        </li>
-    </ul>
-</section>
-
-<section class="slide clear">
-    <h2 class="shout">Component lifecycle. Let's extend</h2>
-</section>
-
-<section class="slide">
-    <img src="pictures/lifecycle.jpeg" class="cover" alt="" width="90%">
-</section>
-
-
-<section class="slide">
-    <h2>getDerivedStateFromProps</h2>
-    <pre><code class="language-jsx"><!--static getDerivedStateFromProps(props, state) {
-  if (props.selected !== state.selected) {
-    return {
-      selected: props.selected,
-    };
-  }
-
-  // Return null if the state hasn't changed
-  return null;
-}--></code></pre>
-</section>
-
-<section class="slide">
-    <h2>getDerivedStateFromProps</h2>
-    <ul>
-        <li>Called before each render</li>
-        <li>It's static!</li>
-        <li><a href="https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html" target="_blank">You
-            probably don't need it</a>
-        </li>
-    </ul>
-</section>
-
-<section class="slide">
-    <h2>shouldComponentUpdate</h2>
-    <pre><code class="language-jsx"><!--shouldComponentUpdate(props, state) {
-  return this.props.resultList !== props.resultList
-}--></code></pre>
-</section>
-
-<section class="slide">
-    <h2>shouldComponentUpdate</h2>
-    <ul>
-        <li>Called before rendering when new props or state are being received.</li>
-        <li>By default return true</li>
-        <li>Should be used for performance optimization</li>
-        <li><a href="https://reactjs.org/docs/react-api.html#reactpurecomponent" target="_blank">Pure component</a>
-        </li>
-    </ul>
-</section>
-
-<section class="slide">
-    <h2>getSnapshotBeforeUpdate</h2>
-    <pre><code class="language-jsx small"><!--getSnapshotBeforeUpdate(prevProps, prevState) {
-  if (prevProps.list.length < this.props.list.length) {
-    const list = this.listRef.current;
-    return list.scrollHeight - list.scrollTop;
-  }
-  return null;
-}
-
-componentDidUpdate(prevProps, prevState, snapshot) {
-  if (snapshot !== null) {
-    const list = this.listRef.current;
-    list.scrollTop = list.scrollHeight - snapshot;
-  }
-}--></code></pre>
-</section>
-
-<section class="slide">
-    <h2>getSnapshotBeforeUpdate</h2>
-    <ul>
-        <li>Called after render method, but <b>before changes applied to DOM</b></li>
-        <li>Result will be passed to <code class="language-jsx inline-code">componentDidMount()</code> as third argument
-        </li>
-        <li>Help to save some information from the DOM (e.g.
-            <a href="https://codesandbox.io/s/2w2zrnz89r?from-embed"
-               target="_blank">scroll position</a>)
-            before it is potentially changed
-        </li>
-    </ul>
-</section>
-
-<section class="slide clear">
-    <h2 class="shout">Component lifecycle. Repeat</h2>
-</section>
-
-<section class="slide">
-    <img src="pictures/lifecycle.jpeg" class="cover" alt="" width="90%">
+    <h2>Pass props</h2>
+    <pre><code class="language-jsx"><!--const FilterableProductTable = (props) => (
+  <div className="m-5">
+    <SearchBar text={props.value} onChange={props.onChange}/>
+    <ProductTable products={props.products}/>
+  </div>
+);--></code></pre>
 </section>
 
 <section class="slide red clear">
-    <h2 class="red-title">Routing</h2>
+    <h2 class="shout">Actions</h2>
+</section>
+
+<section class="slide">
+    <h2>Actions</h2>
+    <pre><code class="language-jsx"><!--const INPUT_CHANGED = 'filterable-product-table/INPUT_CHANGED';
+
+{
+  type: INPUT_CHANGED,
+  value
+}--></code></pre>
+</section>
+
+<section class="slide">
+    <h2>Action creators</h2>
+    <pre><code class="language-jsx"><!--export function changeInput(value){
+  return {
+    type: INPUT_CHANGED,
+    value
+  }
+}--></code></pre>
 </section>
 
 <section class="slide clear">
-    <h2 class="shout">Two main ways</h2>
+    <h2 class="shout">State</h2>
 </section>
 
 <section class="slide">
-    <h2>Hash router</h2>
-    <p>
-    <h3><a>site.com/#/users/1</a></h3></p>
-    <ul>
-        <li>Hash in the url</li>
-        <li>The server never sees the hash</li>
-        <li>Handled 100% in-browser</li>
-        <li>Do not by default result in page reload</li>
-        <li>Buttons and links are plain JS-free <code class="language-jsx inline-code"><!--<a>tags</a>--></code>
-    </ul>
-</section>
-
-<section class="slide">
-    <h2>Browser router</h2>
-    <p>
-    <h3><a>site.com/users/1</a></h3></p>
-    <ul>
-        <li>“Normal” URLs</li>
-        <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/History_API" target="_blank">The HTML5 History
-            API</a></li>
-        <li>Multiple routes indexed by Google</li>
-        <li>Best choice by default</li>
-    </ul>
-</section>
-
-<section class="slide no-heading">
-    <iframe src="https://codesandbox.io/embed/react-router-basic-qx95x?autoresize=1&fontsize=14&view=preview"
-            title="React Router - Basic"
-            allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media"
-            style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
-            sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
-</section>
-
-<section class="slide">
-    <div class="terminal" data-content="~/terminal"><p>npm install react-router-dom</p></div>
-</section>
-
-<section class="slide">
-    <h2>Routes</h2>
-    <pre><code class="language-jsx small"><!--import {BrowserRouter, Route} from "react-router-dom";
-
-const BasicExample = () => {
-  return (
-    <BrowserRouter>
-        <Route exact path="/" component={Home}/>
-        <Route path="/about" component={About}/>
-        <Route path="/topics" component={Topics}/>
-    </BrowserRouter>
-  );
+    <h2>State</h2>
+    <pre><code class="language-jsx"><!--const initialState = {
+  text: '',
+  products: [
+    {
+      category: 'Sporting Goods',
+      price: '$49.99',
+      name: 'Football'
+    },
+    ...
+  ]
 };--></code></pre>
 </section>
 
 <section class="slide">
-    <h2>Links</h2>
-    <pre><code class="language-jsx small"><!--import {BrowserRouter, Route, Link} from "react-router-dom";
-
-const BasicExample = () => {
-  return (
-    <BrowserRouter>
-      <div>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-          <li>
-            <Link to="/topics">Topics</Link>
-          </li>
-        </ul>...--></code></pre>
-</section>
-
-<section class="slide">
-    <h2>Add params</h2>
-    <pre><code class="language-jsx small"><!--<ul>
-  <li>
-    <Link to={`${match.url}/rendering`}>Rendering with React</Link>
-  </li>
-  <li>
-    <Link to={`${match.url}/components`}>Components</Link>
-  </li>
-  <li>
-    <Link to={`${match.url}/props-v-state`}>Props v. State</Link>
-  </li>
-</ul>
-
-<Route path={`${match.path}/:topicId`} component={Topic}/>
---></code></pre>
-</section>
-
-<section class="slide">
-    <h2 class="shout no-bg"><a href="https://codesandbox.io/s/react-router-basic-qx95x?from-embed" target="_blank"
-                               class="link link-codepen">Demo</a></h2>
-</section>
-
-<section class="slide">
-    <h2>Questions?</h2>
-    <ol>
-        <li>Traditional websites vs SPA</li>
-        <li>Hello world</li>
-        <li>React component</li>
-        <li>Component Lifecycle</li>
-        <li>Routing</li>
-    </ol>
-</section>
-
-<section class="slide">
-    <h2 style="margin-bottom:0.2em;">Links</h2>
+    <h2>State</h2>
     <ul>
-        <li><a href="https://reactjs.org/">reactjs.org</a></li>
-        <li><a href="https://reacttraining.com/react-router/web/guides/quick-start">React Router</a></li>
-        <li><a href="https://github.com/chernov-anton/react-examples">Examples</a></li>
+        <li>Immutable object</li>
+        <li>Single per app</li>
+        <li> ≠ React state</li>
+        <li>Think of the shape before writing the code</li>
     </ul>
+</section>
+
+<section class="slide red clear">
+    <h2 class="shout">Reducer</h2>
+</section>
+
+<section class="slide">
+    <h2>Reducer</h2>
+    <ul>
+        <li>Takes current state and action, returns updated state</li>
+        <li>Returns default state if no actions specified</li>
+        <li>Plain JavaScript function</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>Reducer</h2>
+    <pre id="reducer"><code class="language-jsx"><!--export default function reducer(state = initialState, action){
+  switch (action.type){
+    case INPUT_CHANGED:
+      return {
+        ...state,
+        value: action.value,
+        products: products
+            .filter(product => product.name.includes(action.value))
+      };
+    default:
+      return state;
+  }
+}--></code></pre>
+    <style>
+        #reducer {
+            padding-top: 0;
+        }
+    </style>
+</section>
+
+<section class="slide clear">
+    <h2 class="shout">Reducer should be pure!</h2>
+</section>
+
+<section class="slide">
+    <h2>Pure functions</h2>
+    <ul>
+        <li>Same input, same output</li>
+        <li>No side effects</li>
+        <li>No API calls</li>
+        <li>No mutations</li>
+    </ul>
+</section>
+
+<section class="slide red clear">
+    <h2 class="shout">Store</h2>
+</section>
+
+<section class="slide">
+    <h2>Store</h2>
+    <ul>
+        <li>Holds application state</li>
+        <li>Allows access to state via <code class="language-jsx inline-code">getState()</code></li>
+        <li>Allows state to be updated via <code class="language-jsx inline-code">dispatch(action)</code></li>
+        <li>Registers listeners via <code class="language-jsx inline-code">subscribe(listener)</code>*</li>
+        <li>Handles unregistering of listeners via the function returned by <code class="language-jsx inline-code">subscribe(listener)</code>
+            *
+        </li>
+    </ul>
+    <p>*Don't need this with react-redux</p>
+</section>
+
+<section class="slide">
+    <h2>Create store</h2>
+    <pre ><code class="language-jsx"><!--import {createStore} from 'redux';
+import {Provider} from 'react-redux';
+
+const store = createStore(reducer);
+
+const App = () =>
+  <Provider store={store}>
+    <FilterableProductTable/>
+  </Provider>;--></code></pre>
+</section>
+
+<section class="slide red clear">
+    <h2 class="shout">Connect view to store</h2>
+</section>
+
+<section class="slide">
+    <h2>Pass state to props</h2>
+    <pre><code class="language-jsx"><!--const mapStateToProps = (state) => {
+  return {
+    value: state.value,
+    products: state.products
+  }
+};--></code></pre>
+</section>
+
+<section class="slide">
+    <h2>Pass actions to props</h2>
+    <pre><code class="language-jsx"><!--const mapDispatchToProps = (dispatch) => {
+  return {
+    onChange: (e) => dispatch(changeInput(e.target.value)),
+  }; // here we're mapping actions to props
+};--></code></pre>
+</section>
+
+<section class="slide">
+    <h2>Connect to view</h2>
+    <pre><code class="language-jsx"><!--import { connect } from 'react-redux';
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(FilterableProductTable);--></code></pre>
+</section>
+
+<section class="slide active" id="84">
+    <h2 class="shout no-bg"><a href="https://codesandbox.io/s/react-redux-mletu?fontsize=14" target="_blank" class="link link-codepen">Demo</a></h2>
 </section>
 
 <section class="slide">
@@ -898,7 +338,7 @@ const BasicExample = () => {
         FOR YOUR
         ATTENTION!</h2>
     <p>
-        <a href="https://chernov-anton.github.io/talks/react/">chernov-anton.github.io/talks/react</a>
+        <a href="https://chernov-anton.github.io/talks/redux/">chernov-anton.github.io/talks/redux</a>
         <br>
         <a href="skype:live:toxablack?chat">live:toxablack</a>
         <br>
@@ -906,9 +346,6 @@ const BasicExample = () => {
     </p>
     <img src="./pictures/qr-code.png" width="250" alt="QR code — ссылка на презентацию" class="place bottom right">
 </section>
-
-<!--TODO add async request examples-->
-<!--TODO mention fragments, react hooks, context api, error boundaries, portals, ssr-->
 
 <div class="progress"></div>
 
