@@ -71,10 +71,13 @@
         <li>React state management problem</li>
         <li>Data binding</li>
         <li>Redux
-            <ol>Actions</ol>
-            <ol>Store/State</ol>
-            <ol>Reducers</ol>
-            <ol>View</ol>
+            <ol>
+                <li>Actions</li>
+                <li>Store/State</li>
+                <li>Reducers</li>
+                <li>View</li>
+            </ol>
+
         </li>
         <li>Async request handling</li>
     </ol>
@@ -329,8 +332,46 @@ export default connect(
 )(FilterableProductTable);--></code></pre>
 </section>
 
-<section class="slide active" id="84">
+<section class="slide">
+    <h2>Redux cycle</h2>
+    <img src="pictures/redux-cycle-full.png" class="place" alt="" width="70%">
+</section>
+
+<section class="slide">
     <h2 class="shout no-bg"><a href="https://codesandbox.io/s/react-redux-mletu?fontsize=14" target="_blank" class="link link-codepen">Demo</a></h2>
+</section>
+
+<section class="slide red clear">
+    <h2 class="red-title">Middleware</h2>
+    <p>Provides a third-party extension point between dispatching an action, and the moment it reaches the reducer.</p>
+</section>
+
+<section class="slide">
+    <h2>Use middlewares for</h2>
+    <ul>
+        <li>Logging</li>
+        <li>Crash reporting</li>
+        <li>AJAX</li>
+        <li>Routing</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>Add logging middleware</h2>
+    <pre><code class="language-jsx"><!--import {applyMiddleware, createStore} from 'redux';
+import logger from 'redux-logger';
+import {reducer} from './components/filterable-product-table';
+
+const store = createStore(
+  reducer,
+  applyMiddleware(logger)
+);
+
+export default store;--></code></pre>
+</section>
+
+<section class="slide">
+    <h2 class="shout no-bg"><a href="https://codesandbox.io/s/react-redux-eovr6?fontsize=14" target="_blank" class="link link-codepen">Demo</a></h2>
 </section>
 
 <section class="slide">
