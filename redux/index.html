@@ -79,6 +79,7 @@
         <li>Async request handling</li>
         <li>Reducer composition</li>
         <li>Project structure</li>
+        <li>Useful tools</li>
     </ol>
 </section>
 
@@ -149,6 +150,11 @@
 
 <section class="slide clear">
     <h2 class="shout">Let's rewrite search with redux!</h2>
+</section>
+
+<section class="slide">
+    <h2>Redux cycle</h2>
+    <img src="pictures/redux-cycle.png" class="place" alt="" width="80%">
 </section>
 
 <section class="slide red clear">
@@ -333,7 +339,7 @@ export default connect(
 
 <section class="slide">
     <h2>Redux cycle</h2>
-    <img src="pictures/redux-cycle-full.png" class="place" alt="" width="70%">
+    <img src="pictures/search-flow.png" class="place" alt="" width="70%">
 </section>
 
 <section class="slide">
@@ -457,7 +463,7 @@ const CITY_INFO_ERROR = "city_info/CITY_INFO_ERROR";--></code></pre>
 export const receiveCityInfo = cityInfo => {
   return {
     type: CITY_INFO_SUCCESS,
-    cityInfo
+    payload: cityInfo
   };
 };
 
@@ -635,9 +641,62 @@ export default combineReducers({
             <li>MUST export its action creators as functions</li>
             <li>MUST have action types in the form reducer/ACTION_TYPE</li>
             <li>MAY export its action types as UPPER_SNAKE_CASE</li>
+            <p><a href="https://github.com/erikras/ducks-modular-redux" target="_blank">Duck pattern Link</a></p>
         </ul>
         <img src="pictures/duck.jpg" alt="" width="100%">
     </div>
+</section>
+
+<section class="slide red clear">
+    <h2 class="red-title">Useful tools</h2>
+</section>
+
+<section class="slide">
+    <h2>redux-actions</h2>
+    <ul>
+        <li>Reduce amount of boilerplate code</li>
+        <li>Consists of several utilities functions. Let's look at:
+            <ol>
+                <li><code class="language-jsx inline-code">createAction()</code></li>
+                <li><code class="language-jsx inline-code">handleActions()</code></li>
+            </ol>
+        </li>
+
+    </ul>
+    <p><a href="https://redux-actions.js.org/" target="_blank">Redux actions link</a></p>
+</section>
+
+<section class="slide">
+    <h2>createAction()</h2>
+    <pre><code class="language-jsx"><!--export const receiveCityInfo = (cityInfo) => {
+  return {
+    type: CITY_INFO_SUCCESS,
+    payload: cityInfo
+  };
+};
+Becomes
+export const receiveCityInfo = createAction(
+  CITY_INFO_SUCCESS,
+  cityInfo => cityInfo
+);
+--></code></pre>
+</section>
+
+<section class="slide">
+    <h2>handleActions()</h2>
+    <pre class="no-padding"><code class="language-jsx"><!--export default handleActions(
+  {
+    [CITY_INFO_REQUEST]: handleCityInfoRequest,
+    [CITY_INFO_SUCCESS]: handleCityInfoSuccess,
+    [CITY_INFO_ERROR]: handleCityInfoError
+  },
+  initialState
+);
+
+const handleCityInfoRequest = (state) => ({
+  ...state,
+  loading: true
+});--></code></pre>
 </section>
 
 <section class="slide">
@@ -650,6 +709,7 @@ export default combineReducers({
         <li>Async request handling</li>
         <li>Reducer composition</li>
         <li>Project structure</li>
+        <li>Useful tools</li>
     </ol>
 </section>
 
@@ -659,8 +719,10 @@ export default combineReducers({
         <li><a href="https://redux.js.org/">redux.js.org</a></li>
         <li><a href="https://github.com/reduxjs/redux-thunk">redux-thunk</a></li>
         <li><a href="https://github.com/redux-saga/redux-saga">redux-saga</a></li>
-        <li><a href="https://github.com/chernov-anton/redux-examples">Examples (github.com/chernov-anton/redux-examples)</a></li>
-        <li><a href="https://github.com/erikras/ducks-modular-redux">Ducks (https://github.com/erikras/ducks-modular-redux)</a></li>
+        <li><a href="https://github.com/chernov-anton/redux-examples">Examples
+            (github.com/chernov-anton/redux-examples)</a></li>
+        <li><a href="https://github.com/erikras/ducks-modular-redux">Ducks
+            (https://github.com/erikras/ducks-modular-redux)</a></li>
     </ul>
 </section>
 
