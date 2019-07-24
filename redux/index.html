@@ -20,6 +20,10 @@
             font-size: 0.7em;
         }
 
+        .slide pre.no-padding {
+            padding-top: 0;
+        }
+
         .slide .inline-code {
             background: none;
         }
@@ -46,7 +50,7 @@
     <p>
         Chernov Anton, Software Engineer
     </p>
-    <p class="date">27 июля 2019</p>
+    <p class="date">25 июля 2019</p>
     <img src="./pictures/qr-code.png" width="250" alt="QR code — ссылка на презентацию" class="place bottom right">
 </section>
 
@@ -80,6 +84,7 @@
         </li>
         <li>Middleware</li>
         <li>Async request handling</li>
+        <li>Reducer composition</li>
     </ol>
 </section>
 
@@ -288,7 +293,7 @@
 
 <section class="slide">
     <h2>Create store</h2>
-    <pre ><code class="language-jsx"><!--import {createStore} from 'redux';
+    <pre><code class="language-jsx"><!--import {createStore} from 'redux';
 import {Provider} from 'react-redux';
 
 const store = createStore(reducer);
@@ -338,7 +343,8 @@ export default connect(
 </section>
 
 <section class="slide">
-    <h2 class="shout no-bg"><a href="https://codesandbox.io/s/react-redux-mletu?fontsize=14" target="_blank" class="link link-codepen">Demo</a></h2>
+    <h2 class="shout no-bg"><a href="https://codesandbox.io/s/react-redux-mletu?fontsize=14" target="_blank"
+                               class="link link-codepen">Demo</a></h2>
 </section>
 
 <!--TODO add info about combining reducers and reselect-->
@@ -388,7 +394,8 @@ export default store;--></code></pre>
 </section>
 
 <section class="slide">
-    <h2 class="shout no-bg"><a href="https://codesandbox.io/s/react-redux-eovr6?fontsize=14" target="_blank" class="link link-codepen">Demo</a></h2>
+    <h2 class="shout no-bg"><a href="https://codesandbox.io/s/react-redux-eovr6?fontsize=14" target="_blank"
+                               class="link link-codepen">Demo</a></h2>
 </section>
 
 <section class="slide red clear">
@@ -413,12 +420,110 @@ export default store;--></code></pre>
 </section>
 
 <section class="slide">
+    <h2>Redux Thunk</h2>
+    <img src="pictures/thunk.png" class="place" alt="" width="70%">
+</section>
+
+<section class="slide">
     <h2>Thunk under the hood</h2>
     <pre><code class="language-jsx"><!--const thunk = store => next => action =>
     typeof action === 'function'
         ? action(store.dispatch, store.getState)
         : next(action)
 --></code></pre>
+</section>
+
+<section class="slide clear">
+    <h2 class="shout">Let's rewrite city info app with redux!</h2>
+</section>
+
+<section class="slide no-heading">
+    <iframe src="https://codesandbox.io/embed/react-redux-thunk-2ufwt?fontsize=14&hidenavigation=1&view=preview"
+            title="react-redux-thunk"
+            allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media"
+            style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+            sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
+</section>
+
+<section class="slide">
+    <h2>Actions</h2>
+    <pre><code class="language-jsx"><!--const CITY_INFO_REQUEST = "city_info/CITY_INFO_REQUEST";
+const CITY_INFO_SUCCESS = "city_info/CITY_INFO_SUCCESS";
+const CITY_INFO_ERROR = "city_info/CITY_INFO_ERROR";--></code></pre>
+</section>
+
+<section class="slide">
+    <h2>Simple action creators</h2>
+    <pre class="no-padding"><code class="language-jsx small"><!--export const getCityInfo = () => {
+  return {
+    type: CITY_INFO_REQUEST
+  };
+};
+
+export const receiveCityInfo = cityInfo => {
+  return {
+    type: CITY_INFO_SUCCESS,
+    cityInfo
+  };
+};
+
+export const receiveCityInfoError = () => {
+  return {
+    type: CITY_INFO_ERROR
+  };
+};--></code></pre>
+</section>
+
+<section class="slide">
+    <h2>Async action creators</h2>
+    <pre class="no-padding"><code class="language-jsx"><!--export const fetchCityInfo = () => {
+  return async dispatch => {
+    dispatch(getCityInfo());
+
+    try {
+      const cityInfo = await CityInfoService.get();
+
+      dispatch(receiveCityInfo(cityInfo));
+    } catch (e) {
+      dispatch(receiveCityInfoError());
+    }
+  };
+};--></code></pre>
+</section>
+
+<section class="slide">
+    <h2>Sore state</h2>
+    <pre class="no-padding"><code class="language-jsx"><!--const initialState = {
+  data: {
+    country: "",
+    city: ""
+  },
+  error: false,
+  loading: false
+};--></code></pre>
+</section>
+
+<section class="slide">
+    <h2>Connect to container</h2>
+    <pre class="no-padding"><code class="language-jsx small"><!--const mapStateToProps = (state) => {
+  return {
+    country: state.data.country,
+    city: state.data.city,
+    loading: state.loading,
+    error: state.error
+  }
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchCityInfo: () => dispatch(fetchCityInfo()),
+  }; // here we're mapping actions to props
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(CityInfo);--></code></pre>
 </section>
 
 <section class="slide">
@@ -437,11 +542,44 @@ const store = createStore(
 export default store;--></code></pre>
 </section>
 
-<section class="slide clear">
-    <h2 class="shout">Let's rewrite city info app with redux!</h2>
+<section class="slide">
+    <h2 class="shout no-bg"><a href="https://codesandbox.io/s/react-redux-thunk-2ufwt?fontsize=14" target="_blank"
+                               class="link link-codepen">Demo</a></h2>
 </section>
 
-<!--TODO add info about project strucure-->
+<section class="slide red clear">
+    <h2 class="red-title">Reducer composition</h2>
+</section>
+
+<section class="slide">
+    <h2>Reducer composition</h2>
+    <img src="pictures/reducer-composition.png" class="place" alt="" width="70%">
+</section>
+
+<section class="slide">
+    <h2>Reducer composition</h2>
+    <ul>
+        <li>Each of reducers is managing its own part of the global state.</li>
+        <li>Divide state to as small reducers as possible</li>
+        <li>Keep depended on each other parts together</li>
+        <li>Combine reducers with <code class="language-jsx inline-code">combineReducers()</code></li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>Combine reducers</h2>
+    <pre><code class="language-jsx"><!--import { combineReducers } from 'redux‘
+
+import articles from './articlesModule';
+import notifications from './notificationsModule';
+import users from './usersModule';
+
+export default combineReducers({
+	articles,
+    notifications,
+    users
+});--></code></pre>
+</section>
 
 <section class="slide">
     <h2>THANK YOU
