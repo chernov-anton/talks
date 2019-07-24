@@ -74,17 +74,11 @@
     <ol>
         <li>React state management problem</li>
         <li>Data binding</li>
-        <li>Redux
-            <ol>
-                <li>Actions</li>
-                <li>Store/State</li>
-                <li>Reducers</li>
-                <li>View</li>
-            </ol>
-        </li>
+        <li>Redux</li>
         <li>Middleware</li>
         <li>Async request handling</li>
         <li>Reducer composition</li>
+        <li>Project structure</li>
     </ol>
 </section>
 
@@ -579,6 +573,95 @@ export default combineReducers({
     notifications,
     users
 });--></code></pre>
+</section>
+
+<section class="slide red clear">
+    <h2 class="red-title">Project structure</h2>
+</section>
+
+<section class="slide">
+    <h2>Logical component types</h2>
+    <img src="pictures/component-types.png" class="place" alt="" width="70%">
+</section>
+
+<section class="slide">
+    <h2>Logical component types</h2>
+    <table style="table-layout: fixed">
+        <tr>
+            <th scope="col"></th>
+            <th>Container (smart)</th>
+            <th>Presentational (dumb)</th>
+        </tr>
+        <tr>
+            <th scope="row">Purpose</th>
+            <td>How does it work?</td>
+            <td>How does it look?</td>
+        </tr>
+        <tr class="next">
+            <th scope="row">Aware of Redux</th>
+            <td>Yes</td>
+            <td>No</td>
+        </tr>
+        <tr class="next">
+            <th scope="row">Read data</th>
+            <td>From Redux state</td>
+            <td>From props</td>
+        </tr>
+        <tr class="next">
+            <th scope="row">Change data</th>
+            <td>Dispatch Redux actions</td>
+            <td>Invoke callback from props</td>
+        </tr>
+    </table>
+</section>
+
+<section class="slide">
+    <h2>File structure</h2>
+    <div class="double">
+        <ol>
+            <li>Organize by feature</li>
+            <li>Create strict module boundaries</li>
+            <li>Avoid circular dependencies</li>
+        </ol>
+        <img src="pictures/file-structure.png" alt="" width="110%">
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Duck pattern</h2>
+    <div class="double">
+        <ul>
+            <li>MUST export default a function called reducer()</li>
+            <li>MUST export its action creators as functions</li>
+            <li>MUST have action types in the form reducer/ACTION_TYPE</li>
+            <li>MAY export its action types as UPPER_SNAKE_CASE</li>
+        </ul>
+        <img src="pictures/duck.jpg" alt="" width="100%">
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Questions?</h2>
+    <ol>
+        <li>React state management problem</li>
+        <li>Data binding</li>
+        <li>Redux</li>
+        <li>Middleware</li>
+        <li>Async request handling</li>
+        <li>Reducer composition</li>
+        <li>Project structure</li>
+    </ol>
+</section>
+
+<section class="slide">
+    <h2 style="margin-bottom:0.2em;">Links</h2>
+    <ul>
+        <li><a href="https://redux.js.org/">redux.js.org</a></li>
+        <li><a href="https://github.com/reduxjs/redux-thunk">redux-thunk</a></li>
+        <li><a href="https://github.com/redux-saga/redux-saga">redux-saga</a></li>
+        <li><a href="https://github.com/chernov-anton/redux-examples">Examples (github.com/chernov-anton/redux-examples)</a></li>
+        <li><a href="https://github.com/erikras/ducks-modular-redux">Ducks (https://github.com/erikras/ducks-modular-redux)</a></li>
+    </ul>
 </section>
 
 <section class="slide">
