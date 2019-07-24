@@ -54,7 +54,7 @@
     <img src="./pictures/qr-code.png" width="250" alt="QR code — ссылка на презентацию" class="place bottom right">
 </section>
 
-<section class="slide" id="about" style="display: none">
+<!--<section class="slide" id="about">
     <div class="info">
         <h2>Чернов Антон</h2>
         <div class="double">
@@ -67,7 +67,7 @@
             <img src="pictures/me.jpg" alt="Чернов Антон" style="width: 100%;">
         </div>
     </div>
-</section>
+</section>-->
 
 <section class="slide">
     <h2>Agenda</h2>
@@ -202,7 +202,7 @@
 <section class="slide">
     <h2>State</h2>
     <pre><code class="language-jsx"><!--const initialState = {
-  text: '',
+  value: '',
   products: [
     {
       category: 'Sporting Goods',
@@ -674,7 +674,7 @@ export default combineReducers({
     payload: cityInfo
   };
 };
-Becomes
+// Becomes
 export const receiveCityInfo = createAction(
   CITY_INFO_SUCCESS,
   cityInfo => cityInfo
@@ -697,6 +697,54 @@ const handleCityInfoRequest = (state) => ({
   ...state,
   loading: true
 });--></code></pre>
+</section>
+
+<section class="slide">
+    <h2>reselect</h2>
+    <ul>
+        <li>Allows Redux to store the minimal possible state.</li>
+        <li>Selector is not recomputed unless one of its arguments changes.</li>
+        <li>Selectors are composable. They can be used as input to other selectors.</li>
+    </ul>
+    <p><a href="https://github.com/reduxjs/reselect" target="_blank">Reselect link</a></p>
+</section>
+
+<section class="slide">
+    <h2 class="shout no-bg">Reselect our search!</h2>
+</section>
+
+<section class="slide">
+    <h2>Redux state</h2>
+    <pre><code class="language-jsx"><!--// No need to store static products in state
+const initialState = {
+  value: '',
+  products
+};
+// Becomes
+const initialState = {
+  value: ''
+};
+--></code></pre>
+</section>
+
+<section class="slide">
+    <h2>Products are filtered on the fly</h2>
+    <pre class="no-padding"><code class="language-jsx small"><!--import {createSelector} from 'reselect';
+
+const getValueSelector = state => state.value;
+
+const getProductSelector = createSelector(
+  getValueSelector,
+  value => products.filter(product => product.name.includes(value))
+);
+
+const mapStateToProps = (state) => {
+  return {
+    value: getValueSelector(state),
+    products: getProductSelector(state)
+  };
+};
+--></code></pre>
 </section>
 
 <section class="slide">
@@ -723,8 +771,8 @@ const handleCityInfoRequest = (state) => ({
             (github.com/chernov-anton/redux-examples)</a></li>
         <li><a href="https://github.com/erikras/ducks-modular-redux">Ducks
             (https://github.com/erikras/ducks-modular-redux)</a></li>
-        <li><a href="https://redux-actions.js.org/">redux-actions(redux-actions.js.org)</a></li>
-
+        <li><a href="https://redux-actions.js.org/">redux-actions (redux-actions.js.org)</a></li>
+        <li><a href="https://github.com/reduxjs/reselect/">reselect (github.com/reduxjs/reselect)</a></li>
     </ul>
 </section>
 
