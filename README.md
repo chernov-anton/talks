@@ -4,6 +4,7 @@
 
 * Students Lab — [JS](https://chernov-anton.github.io/talks/JavaScript.pdf)
 * Students Lab — [React](https://chernov-anton.github.io/talks/react/)
+* Students Lab — [Redux](https://chernov-anton.github.io/talks/redux/)
 * Students Lab — [Mongo](https://chernov-anton.github.io/talks/Mongo.pdf)
 * Students Lab — [Mongoose](https://chernov-anton.github.io/talks/Mongoose.pdf)
 * Students Lab — [Passport](https://chernov-anton.github.io/talks/PassportJS.pdf)
